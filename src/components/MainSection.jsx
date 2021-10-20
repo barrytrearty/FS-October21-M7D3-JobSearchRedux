@@ -15,6 +15,7 @@ import {
   BsFillArrowRightCircleFill,
 } from "react-icons/bs";
 import { connect } from "react-redux";
+import { addFavoriteCompanyAction } from "../actions";
 
 // const mapStateToProps = (state) => ({
 //   favorites: state.companies.favorites,
@@ -24,10 +25,7 @@ const mapStateToProps = (state) => ({});
 
 const mapDispatchToProps = (dispatch) => ({
   addFavoriteCompany: (company) => {
-    dispatch({
-      type: "ADD_COMPANY_TO_FAVORITES",
-      payload: company,
-    });
+    dispatch(addFavoriteCompanyAction(company));
   },
 });
 

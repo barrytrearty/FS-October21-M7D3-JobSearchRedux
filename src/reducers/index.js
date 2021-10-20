@@ -1,16 +1,23 @@
+import {
+  ADD_COMPANY_TO_FAVORITES,
+  REMOVE_COMPANY_FROM_FAVORITES,
+} from "../actions";
 import { initialState } from "../store";
 
 export const favoriteReducer = (state = initialState, action) => {
   switch (action.type) {
-    case "ADD_COMPANY_TO_FAVORITES":
+    case ADD_COMPANY_TO_FAVORITES:
       return {
         ...state,
         companies: {
           ...state.companies,
-          favorites: [...state.companies.favorites, action.payload],
+          favorites: state.companies.favorites.includes(action.payload)
+            ? [...state.companies.favorites]
+            : [...state.companies.favorites, action.payload],
+          //   favorites: [...state.companies.favorites, action.payload],
         },
       };
-    case "REMOVE_COMPANY_FROM_FAVORITES":
+    case REMOVE_COMPANY_FROM_FAVORITES:
       return {
         ...state,
         companies: {

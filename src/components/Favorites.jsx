@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { Col, Container, Row, Button } from "react-bootstrap";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
+import { removeFavoriteCompanyAction } from "../actions";
 
 const mapStateToProps = (state) => ({
   favorites: state.companies.favorites,
@@ -9,10 +10,7 @@ const mapStateToProps = (state) => ({
 
 const mapDispatchToProps = (dispatch) => ({
   removeFavoriteCompany: (index) => {
-    dispatch({
-      type: "REMOVE_COMPANY_FROM_FAVORITES",
-      payload: index,
-    });
+    dispatch(removeFavoriteCompanyAction(index));
   },
 });
 
