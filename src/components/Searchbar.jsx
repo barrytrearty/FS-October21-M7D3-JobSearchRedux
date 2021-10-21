@@ -29,7 +29,7 @@ const Searchbar = ({
               Search
             </Dropdown.Item>
             <Dropdown.Item onClick={() => setSearchParameter("Title")}>
-              Role
+              Title
             </Dropdown.Item>
             <Dropdown.Item onClick={() => setSearchParameter("Company")}>
               Company

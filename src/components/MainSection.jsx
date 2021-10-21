@@ -50,7 +50,7 @@ const MainSection = ({
             <Row className="border">
               {/* <Row border="primary"> */}
               <Col xs={4}>
-                <h2>Role</h2>
+                <h2>Title</h2>
               </Col>
               <Col xs={4}>
                 <h2>Categories</h2>
