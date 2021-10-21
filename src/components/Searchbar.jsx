@@ -15,8 +15,6 @@ const Searchbar = ({
   searchParameter,
   setSearchParameter,
 }) => {
-  // const [searchParameter, setSearchParameter] = useState("Search");
-
   return (
     <div>
       <Container>
@@ -31,7 +29,7 @@ const Searchbar = ({
               Search
             </Dropdown.Item>
             <Dropdown.Item onClick={() => setSearchParameter("Title")}>
-              Title
+              Role
             </Dropdown.Item>
             <Dropdown.Item onClick={() => setSearchParameter("Company")}>
               Company
