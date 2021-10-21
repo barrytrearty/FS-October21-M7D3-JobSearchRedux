@@ -1,25 +1,12 @@
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import {
-  Col,
-  Container,
-  Row,
-  Button,
-  // Dropdown,
-  // FormControl,
-  // InputGroup,
-  // DropdownButton,
-} from "react-bootstrap";
+import { Col, Container, Row, Button } from "react-bootstrap";
 import {
   BsFillArrowLeftCircleFill,
   BsFillArrowRightCircleFill,
 } from "react-icons/bs";
 import { connect } from "react-redux";
 import { addFavoriteCompanyAction } from "../actions";
-
-// const mapStateToProps = (state) => ({
-//   favorites: state.companies.favorites,
-// });
 
 const mapStateToProps = (state) => ({});
 

@@ -9,25 +9,13 @@ import {
   DropdownButton,
 } from "react-bootstrap";
 
-const Searchbar = ({ setJobsArray, searchQuery, setSearchQuery, skip }) => {
-  const [searchParameter, setSearchParameter] = useState("Search");
-
-  const getJobs = async () => {
-    try {
-      let response = await fetch(
-        `https://strive-jobs-api.herokuapp.com/jobs?${searchParameter.toLowerCase()}=${searchQuery}&limit=10&offset=${skip}`
-      );
-      let jobsProm = await response.json();
-      setJobsArray(jobsProm.data);
-      //   console.log(jobsArray);
-    } catch (error) {
-      console.log(error);
-    }
-  };
-
-  useEffect(() => {
-    getJobs();
-  }, [searchQuery, searchParameter, skip]);
+const Searchbar = ({
+  searchQuery,
+  setSearchQuery,
+  searchParameter,
+  setSearchParameter,
+}) => {
+  // const [searchParameter, setSearchParameter] = useState("Search");
 
   return (
     <div>

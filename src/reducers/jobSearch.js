@@ -1,0 +1,14 @@
+import { GET_JOBS } from "../actions";
+import { initialState } from "../store";
+
+export const jobsReducer = (state = initialState.jobs, action) => {
+  switch (action.type) {
+    case GET_JOBS:
+      return {
+        ...state,
+        jobsArray: action.payload,
+      };
+    default:
+      return state;
+  }
+};

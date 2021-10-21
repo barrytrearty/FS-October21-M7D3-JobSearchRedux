@@ -6,35 +6,55 @@ import Searchbar from "./components/Searchbar";
 import MainSection from "./components/MainSection";
 import CompanySection from "./components/CompanySection";
 import Favorites from "./components/Favorites";
+import { connect } from "react-redux";
+import { getJobsAction } from "./actions";
 
-function App() {
-  const [jobsArray, setJobsArray] = useState([]);
+const mapStateToProps = (state) => ({
+  jobs: state.jobs.jobsArray,
+});
+
+const mapDispatchToProps = (dispatch) => ({
+  getJobs: (searchQuery, searchParameter, skip) => {
+    dispatch(getJobsAction(searchQuery, searchParameter, skip));
+  },
+});
+
+function App({ getJobs, jobs }) {
+  // const [jobsArray, setJobsArray] = useState([]);
   const [searchQuery, setSearchQuery] = useState("");
+  const [searchParameter, setSearchParameter] = useState("Search");
   const [skip, setSkip] = useState(0);
   // const [searchQuery, setSearchQuery] = useState("");
+
+  useEffect(() => {
+    getJobs(searchQuery, searchParameter, skip);
+    console.log(jobs);
+  }, [searchQuery, searchParameter, skip]);
 
   return (
     <Router>
       <div className="App">
         <Container>
           <Row>
+            {console.log(jobs)}
             <Col xs={9}>
               {" "}
               <Link to={`/`}>
                 <h1 className="mt-5 text-align-center">Gimme a Job Please</h1>
               </Link>
               <Searchbar
-                setJobsArray={setJobsArray}
+                // setJobsArray={setJobsArray}
                 searchQuery={searchQuery}
                 setSearchQuery={setSearchQuery}
-                skip={skip}
+                searchParameter={searchParameter}
+                setSearchParameter={setSearchParameter}
               />
               <Route
                 path="/"
                 exact
                 render={() => (
                   <MainSection
-                    jobsArray={jobsArray}
+                    jobsArray={jobs}
                     searchQuery={searchQuery}
                     skip={skip}
                     setSkip={setSkip}
@@ -56,4 +76,4 @@ function App() {
   );
 }
 
-export default App;
+export default connect(mapStateToProps, mapDispatchToProps)(App);
