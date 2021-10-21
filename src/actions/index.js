@@ -1,6 +1,7 @@
 export const ADD_COMPANY_TO_FAVORITES = "ADD_COMPANY_TO_FAVORITES";
 export const REMOVE_COMPANY_FROM_FAVORITES = "REMOVE_COMPANY_FROM_FAVORITES";
 export const GET_JOBS = "GET_JOBS";
+export const GET_JOBS_ERROR = "GET_JOBS_ERROR";
 
 export const removeFavoriteCompanyAction = (index) => ({
   type: REMOVE_COMPANY_FROM_FAVORITES,
@@ -27,6 +28,11 @@ export const getJobsAction = (searchQuery, searchParameter, skip) => {
       } else {
         console.log("error");
       }
-    } catch (error) {}
+    } catch (error) {
+      dispatch({
+        type: GET_JOBS_ERROR,
+        payload: error,
+      });
+    }
   };
 };

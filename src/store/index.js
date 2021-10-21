@@ -8,7 +8,7 @@ const componseEnhancers =
 
 export const initialState = {
   companies: { favorites: [] },
-  jobs: { jobsArray: [] },
+  jobs: { jobsArray: [], isError: false },
 };
 
 const bigReducer = combineReducers({

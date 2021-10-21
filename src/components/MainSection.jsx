@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+// import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { Col, Container, Row, Button } from "react-bootstrap";
 import {
@@ -7,6 +7,7 @@ import {
 } from "react-icons/bs";
 import { connect } from "react-redux";
 import { addFavoriteCompanyAction } from "../actions";
+// import "./style.css";
 
 const mapStateToProps = (state) => ({});
 
@@ -34,19 +35,22 @@ const MainSection = ({
             <h2>Jobs</h2>
 
             {/* <BsFillArrowLeftCircleFill onClick={setSkip((skip -= 10))} /> */}
-            <BsFillArrowLeftCircleFill
-              className="icon"
-              onClick={() => {
-                if (skip > 9) {
-                  console.log(skip);
-                  setSkip((skip -= 10));
-                }
-              }}
-            />
-            <BsFillArrowRightCircleFill
-              className="icon"
-              onClick={() => setSkip((skip += 10))}
-            />
+            <div className="d-flex flex-row justify-content-between">
+              <BsFillArrowLeftCircleFill
+                className="icon"
+                onClick={() => {
+                  if (skip > 9) {
+                    console.log(skip);
+                    setSkip((skip -= 10));
+                  }
+                }}
+              />
+              <BsFillArrowRightCircleFill
+                className="icon"
+                onClick={() => setSkip((skip += 10))}
+              />
+            </div>
+
             <Row className="border">
               {/* <Row border="primary"> */}
               <Col xs={4}>
