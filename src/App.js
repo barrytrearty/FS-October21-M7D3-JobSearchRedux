@@ -20,11 +20,9 @@ const mapDispatchToProps = (dispatch) => ({
 });
 
 function App({ getJobs, jobs }) {
-  // const [jobsArray, setJobsArray] = useState([]);
   const [searchQuery, setSearchQuery] = useState("");
   const [searchParameter, setSearchParameter] = useState("Search");
   const [skip, setSkip] = useState(0);
-  // const [searchQuery, setSearchQuery] = useState("");
 
   useEffect(() => {
     getJobs(searchQuery, searchParameter, skip);
